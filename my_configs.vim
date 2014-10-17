@@ -18,3 +18,14 @@ set smarttab
 filetype plugin indent on
 
 highlight clear SignColumn
+
+let g:airline#extensions#tabline#enabled = 1
+
+let g:airline#extensions#default#section_truncate_width = {
+            \ 'b': 70,
+            \ 'c': 60,
+            \ 'x': 50,
+            \ 'y': 120,
+            \ 'z': 45,
+            \ 'warning': 100,
+            \ }
