@@ -19,6 +19,8 @@ filetype plugin indent on
 
 highlight clear SignColumn
 
+set nofullscreen
+
 let g:airline#extensions#tabline#enabled = 1
 
 let g:airline#extensions#default#section_truncate_width = {
