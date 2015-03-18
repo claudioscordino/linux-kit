@@ -1,4 +1,3 @@
-set noexpandtab
 
 set tags+=./tags;/,tags;/
 set tags+=/var/tmp/tags
@@ -10,10 +9,15 @@ set tabstop=8
 set shiftwidth=4
 set softtabstop=8
 set expandtab
-"set noexpandtab
 set autoindent
 set smartindent
 set smarttab
+set copyindent
+set preserveindent
+
+"freebsd code
+"set noexpandtab
+"set shiftwidth=8
 
 filetype plugin indent on
 
