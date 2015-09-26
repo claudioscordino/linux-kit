@@ -18,6 +18,7 @@ set preserveindent
 "freebsd code
 "set noexpandtab
 "set shiftwidth=8
+let g:gitgutter_enabled = 1
 
 filetype plugin indent on
 
