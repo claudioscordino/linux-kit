@@ -24,8 +24,6 @@ filetype plugin indent on
 
 highlight clear SignColumn
 
-set nofullscreen
-
 let g:airline#extensions#tabline#enabled = 1
 
 let g:airline#extensions#default#section_truncate_width = {
@@ -36,3 +34,6 @@ let g:airline#extensions#default#section_truncate_width = {
             \ 'z': 45,
             \ 'warning': 100,
             \ }
+" usefull only on mac (macvim), other vims block on this,
+" then it must be the last line
+set nofullscreen
