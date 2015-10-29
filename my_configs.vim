@@ -1,4 +1,19 @@
 
+" cscope support
+source ~/.vim_runtime/vimrcs/cscope_maps.vim
+
+function! LoadCscope()
+    let db = findfile("cscope.out", ".;")
+    if (!empty(db))
+        let path = strpart(db, 0, match(db, "/cscope.out$"))
+        set nocscopeverbose " suppress 'duplicate connection' error
+        exe "cs add " . db . " " . path
+        set cscopeverbose
+    endif
+endfunction
+au BufEnter /* call LoadCscope()
+
+" ctags support 
 set tags+=./tags;/,tags;/
 set tags+=/var/tmp/tags
 
@@ -37,3 +52,4 @@ let g:airline#extensions#default#section_truncate_width = {
 " usefull only on mac (macvim), other vims block on this,
 " then it must be the last line
 set nofullscreen
+
