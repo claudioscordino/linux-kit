@@ -1,5 +1,80 @@
+set nocp " non vi compatible mode. Must be the first option.
 
-" cscope support
+" ==========================
+" OMNICPP (disabled)
+" ==========================
+
+"	set nocp " non vi compatible mode. Must be the first option.
+"	filetype plugin on " enable plugins
+"	autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"	set completeopt=menu,menuone
+"	let OmniCpp_MayCompleteDot = 1 " autocomplete with .
+"	let OmniCpp_MayCompleteArrow = 1 " autocomplete with ->
+"	let OmniCpp_MayCompleteScope = 1 " autocomplete with ::
+"	let OmniCpp_SelectFirstItem = 2 " select first item (but don't insert)
+"	let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
+"	let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype in popup window
+"	let OmniCpp_DefaultNamespaces = ["std"]
+"	let OmniCpp_ShowAccess = 1
+"	let OmniCpp_GlobalScopeSearch = 1
+"
+"
+"	" F11 autocompletes words
+"	imap <F11> <c-p>
+
+
+" ==========================
+" GENERAL OPTIONS
+" ==========================
+
+set history=700
+set undolevels=700
+set autoread
+set ignorecase
+
+set vb t_vb=
+set novisualbell
+set noerrorbells
+set mouse=a
+
+set nobackup
+
+" set laststatus=2	" State bar always visible
+
+syn on			" Syntax highlighting
+
+set hlsearch		" Coloured search
+
+set incsearch		" Incremental search
+
+set showmatch		" Shows correspondent brackets
+set matchtime=5		" ... only for 5 tenths of second
+
+" Jumps automatically to the last edited line:
+ autocmd BufRead *,.* :normal '"
+
+
+" ==========================
+" INDENTING
+" ==========================
+
+set autoindent
+set nocindent 
+set smartindent
+set copyindent
+set preserveindent
+" filetype plugin indent on
+
+" F6 does indentation of code
+map <F6> ==
+vmap <F6> =
+
+
+
+" ==========================
+" CSCOPE
+" ==========================
+
 source ~/.vim_runtime/vimrcs/cscope_maps.vim
 
 function! LoadCscope()
@@ -13,29 +88,203 @@ function! LoadCscope()
 endfunction
 au BufEnter /* call LoadCscope()
 
-" ctags support 
+" ==========================
+" CTAGS
+" ==========================
+
 set tags+=./tags;/,tags;/
 set tags+=/var/tmp/tags
+
+" Alt-1 searches a tag
+map <a-1> :tj 
+
+" Alt-2 goes to a ctag
+map <a-2> :tn<CR>
+
+" Alt-3 returns from a ctag
+map <a-3> :tp<CR>
+
+" Alt-4 goes to a ctag
+map <a-4> g<c-]> 
+
+" Alt-5 returns from a ctag
+map <a-5> <c-t> 
+
+
+" ==========================
+" COLUMNS AND ALIGNMENT
+" ==========================
+
+" Number of columns after which wrap to the next line 
+" (using a value less or equal to 80 the file can be read also from shell).
+autocmd FileType txt set textwidth=72
+
+" ==========================
+" FILE TYPE SPECIFICS
+" ==========================
+
+autocmd FileType tex imap <a-1> \begin{itemize}
+autocmd FileType tex imap <a-2> \item 
+autocmd FileType tex imap <a-3> \end{itemize}
+
+" Numbers for all programming files
+autocmd FileType c,h,cpp,php,hpp,java,py set number
+
+
+" ==========================
+" SPELLING
+" ==========================
+
+set spelllang=en_us
+map <F12> :setlocal spell!<cr>
+
+" ====================
+" TAB KEY
+" ====================
+
+" We don't want the tab equal to spaces
+set noexpandtab
+"set smarttab
+
+" The tab is equal to the size of 8 spaces for programming
+autocmd FileType c,h,cpp,php,hpp,java,py set shiftwidth=8 
+autocmd FileType c,h,cpp,php,hpp,java,py set tabstop=8
+autocmd FileType c,h,cpp,php,hpp,java,py set softtabstop=8
+
+" Tab works as follows:
+" - On programming files: indent
+" - On other files: wrapping
+map <tab> gqq
+vmap <tab> gq
+autocmd FileType c,h,cpp,php,hpp,java,py map <tab> ==
+autocmd FileType c,h,cpp,php,hpp,java,py vmap <tab> =
+
+
+" ====================
+" TABS AND BUFFERS
+" ====================
+
+"	" F1-F2 to move across buffers
+"	if has("gui_running")
+"		map <F1> :tabp<CR>
+"		map <F2> :tabn<CR>
+"	else
+"		map <F1> :bn!<CR>
+"		map <F2> :bp!<CR>
+"	endif
+"map <F1> :tabp<CR>
+"map <F2> :tabn<CR>
+map <F1> :bp!<CR>
+map <F2> :bn!<CR>
+
+" F3 switches across splitted windows
+map <F3> <c-w>w
+
+" F4and F5 fold and unfold
+vmap <F4> zf
+map <F5> zd
+set foldcolumn=0
+
+" ====================
+" TEXT WRAPPING
+" ====================
+
+map <F7> gqq
+vmap <F7> gq
+
+" ====================
+" COMMENT OUT
+" ====================
+
+map <F8> :call Comment()<CR>
+map <F9> :call Uncomment()<CR>
+
+" Comments range (handles multiple file types)
+function! Comment() range
+  if &filetype == "css"
+    execute ":" . a:firstline . "," . a:lastline . 's/^\(.*\)$/\/\* \1 \*\//'
+  elseif &filetype == "html" || &filetype == "xml" || &filetype == "xslt" || &filetype == "xsd" || &filetype == "xhtml" || &filetype == "php"
+    execute ":" . a:firstline . "," . a:lastline . 's/^\(.*\)$/<!-- \1 -->/'
+  elseif &filetype == "c" || &filetype == "h"
+    execute ":" . a:firstline . "," . a:lastline . 's/^\(.*\)$/\/* \1 *\//'
+  else
+    if &filetype == "java" || &filetype == "cs" || &filetype == "cpp" || &filetype == "hpp"
+      let commentString = "// "
+    elseif &filetype == "vim"
+      let commentString = '"'
+    elseif &filetype == "tex" || &filetype == "bib"
+      let commentString = "%% "
+    elseif &filetype == "cmm"
+      let commentString = ";; "
+    else
+      let commentString = "## "
+    endif
+    execute ":" . a:firstline . "," . a:lastline . 's,^,' . commentString . ','
+  endif
+endfunction
+
+" Uncomments range (handles multiple file types)
+function! Uncomment() range
+  if &filetype == "php" || &filetype == "css" || &filetype == "html" || &filetype == "xml" || &filetype == "xslt" || &filetype == "xsd" || &filetype == "xhtml" 
+    " http://www.vim.org/tips/tip.php?tip_id=271
+    execute ":" . a:firstline . "," . a:lastline . 's/^\([/(]\*\|<!--\) \(.*\) \(\*[/)]\|-->\)$/\2/'
+  elseif &filetype == "c" || &filetype == "h"
+    execute ":" . a:firstline . "," . a:lastline . 's/^\([/(]\*\|\/\*\) \(.*\) \(\*[/)]\|\*\/\)$/\2/'
+  else
+    if &filetype == "java" || &filetype == "cs" || &filetype == "cpp" || &filetype == "hpp"
+      let commentString = "// "
+    elseif &filetype == "vim"
+      let commentString = '"'
+    elseif &filetype == "tex" || &filetype == "bib"
+      let commentString = "%% "
+    elseif &filetype == "cmm"
+      let commentString = ";; "
+    else
+      let commentString = "## "
+    endif
+    execute ":" . a:firstline . "," . a:lastline . 's,^' . commentString . ',,'
+  endif
+endfunction
+
+
+" ====================
+" MICROSOFT WORD
+" ====================
+
+" reading Ms-Word documents (requires antiword)
+autocmd BufReadPre *.doc set ro
+autocmd BufReadPre *.doc set hlsearch!
+autocmd BufReadPost *.doc %!antiword "%"
+
+" ====================
+" GUI OPTIONS
+" ====================
+
+set guioptions-=m
+
+" Options for gvim
+if has("gui_running")
+
+	"Fonts used in gvim
+	set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
+	set gfw=Bitstream\ Vera\ Sans\ Mono\ Bold\ 11
+
+endif
+
+" ====================
+" GRAPHIC COLORS
+" ====================
+
+"source ~/.vim_runtime/colors-cloud-dark.vim
+"source ~/.vim_runtime/colors-cloud-light.vim
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 	 	\ | wincmd p | diffthis
 
-set tabstop=8
-set shiftwidth=4
-set softtabstop=8
-set expandtab
-set autoindent
-set smartindent
-set smarttab
-set copyindent
-set preserveindent
 
-"freebsd code
-"set noexpandtab
-"set shiftwidth=8
 let g:gitgutter_enabled = 1
-
-filetype plugin indent on
 
 highlight clear SignColumn
 
@@ -51,5 +300,9 @@ let g:airline#extensions#default#section_truncate_width = {
             \ }
 " usefull only on mac (macvim), other vims block on this,
 " then it must be the last line
+
+set cmdheight=1
 set nofullscreen
+set lines=45
+set co=80
 
