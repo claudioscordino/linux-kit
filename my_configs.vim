@@ -1,3 +1,21 @@
+" KEY MAPPINGS
+" F1 - F2		Move across open buffers
+" F3			Move across splitted windows
+" F4 - F5		Fold/unfold rows
+" F6			Indent code
+" F7			Text wrapping
+" F8 - F9		Comment/uncomment rows
+" F12			Enable spelling
+" Alt-1		Programming:	Search a tag (ctags)
+"		latex:		Insert begin{itemize}
+" Alt-2		Go to the next matching tag (ctags)
+"		latex:		\item
+" Alt-3		Returns from a Alt-F1 (ctags)
+"		latex:		Insert end{itemize}
+" Alt-4		Search the tag under cursor (ctags)
+" Alt-5		Restore from Alt-F4 (ctags)
+" Alt-6		Search all calls to the function name under cursor (cscope)
+
 set nocp " non vi compatible mode. Must be the first option.
 
 " ==========================
@@ -72,7 +90,7 @@ vmap <F6> =
 
 
 " ==========================
-" CSCOPE
+" CSCOPE (create DB through cscope -R)
 " ==========================
 
 source ~/.vim_runtime/vimrcs/cscope_maps.vim
@@ -88,8 +106,11 @@ function! LoadCscope()
 endfunction
 au BufEnter /* call LoadCscope()
 
+" Alt-6 searches all calls to the function name under cursor
+map <a-6> :cs find c <C-R>=expand("<cword>")<CR><CR>	
+
 " ==========================
-" CTAGS
+" CTAGS (create DB through ctags -R .)
 " ==========================
 
 set tags+=./tags;/,tags;/
@@ -98,16 +119,16 @@ set tags+=/var/tmp/tags
 " Alt-1 searches a tag
 map <a-1> :tj 
 
-" Alt-2 goes to a ctag
+" Alt-2 goes to the next tag
 map <a-2> :tn<CR>
 
-" Alt-3 returns from a ctag
+" Alt-3 returns from a tag
 map <a-3> :tp<CR>
 
-" Alt-4 goes to a ctag
+" Alt-4 searches the tag under cursor
 map <a-4> g<c-]> 
 
-" Alt-5 returns from a ctag
+" Alt-5 returns from Alt-4
 map <a-5> <c-t> 
 
 
@@ -118,6 +139,9 @@ map <a-5> <c-t>
 " Number of columns after which wrap to the next line 
 " (using a value less or equal to 80 the file can be read also from shell).
 autocmd FileType txt set textwidth=72
+
+set lines=45
+set co=120
 
 " ==========================
 " FILE TYPE SPECIFICS
@@ -147,7 +171,7 @@ set noexpandtab
 "set smarttab
 
 " The tab is equal to the size of 8 spaces for programming
-autocmd FileType c,h,cpp,php,hpp,java,py set shiftwidth=8 
+autocmd FileType c,h,cpp,php,hpp,java,py set shiftwidth=8
 autocmd FileType c,h,cpp,php,hpp,java,py set tabstop=8
 autocmd FileType c,h,cpp,php,hpp,java,py set softtabstop=8
 
@@ -225,7 +249,7 @@ endfunction
 
 " Uncomments range (handles multiple file types)
 function! Uncomment() range
-  if &filetype == "php" || &filetype == "css" || &filetype == "html" || &filetype == "xml" || &filetype == "xslt" || &filetype == "xsd" || &filetype == "xhtml" 
+  if &filetype == "php" || &filetype == "css" || &filetype == "html" || &filetype == "xml" || &filetype == "xslt" || &filetype == "xsd" || &filetype == "xhtml"
     " http://www.vim.org/tips/tip.php?tip_id=271
     execute ":" . a:firstline . "," . a:lastline . 's/^\([/(]\*\|<!--\) \(.*\) \(\*[/)]\|-->\)$/\2/'
   elseif &filetype == "c" || &filetype == "h"
@@ -268,6 +292,7 @@ if has("gui_running")
 	"Fonts used in gvim
 	set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 	set gfw=Bitstream\ Vera\ Sans\ Mono\ Bold\ 11
+	set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 
 endif
 
@@ -302,7 +327,4 @@ let g:airline#extensions#default#section_truncate_width = {
 " then it must be the last line
 
 set cmdheight=1
-set nofullscreen
-set lines=45
-set co=80
 
