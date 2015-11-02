@@ -51,18 +51,18 @@ autocmd FileType * :hi Statement guifg=#ffff60 gui=none
 autocmd FileType c,h,cpp,php,hpp,java :hi Statement guifg=#ffff60
 autocmd FileType c,h,cpp,php,hpp,java :hi cStatement guifg=#ffff60
 autocmd FileType c,h,cpp,php,hpp,java :hi cppStatement guifg=#ffff60
-autocmd FileType c,h,cpp,php,hpp,java :hi String guifg=SkyBlue gui=italic ctermfg=cyan
-autocmd FileType c,h,cpp,php,hpp,java :hi cString guifg=SkyBlue gui=italic ctermfg=cyan
-autocmd FileType c,h,cpp,php,hpp,java :hi cppString guifg=SkyBlue gui=italic ctermfg=cyan
+autocmd FileType c,h,cpp,php,hpp,java :hi String guifg=SkyBlue ctermfg=cyan
+autocmd FileType c,h,cpp,php,hpp,java :hi cString guifg=SkyBlue ctermfg=cyan
+autocmd FileType c,h,cpp,php,hpp,java :hi cppString guifg=SkyBlue ctermfg=cyan
 
-autocmd FileType * :hi Comment guifg=darkcyan gui=italic 
-autocmd FileType c,h,cpp,php,hpp,java :hi Comment guifg=darkcyan gui=italic 
-autocmd FileType c,h,cpp,php,hpp,java :hi cComment guifg=darkcyan gui=italic 
-autocmd FileType c,h,cpp,php,hpp,java :hi cppComment guifg=darkcyan gui=italic 
+autocmd FileType * :hi Comment guifg=darkcyan
+autocmd FileType c,h,cpp,php,hpp,java :hi Comment guifg=darkcyan
+autocmd FileType c,h,cpp,php,hpp,java :hi cComment guifg=darkcyan
+autocmd FileType c,h,cpp,php,hpp,java :hi cppComment guifg=darkcyan
 
 "Fonts shown in tex files
 autocmd FileType tex,bib :hi texSection guifg=#ffff60 gui=none
-autocmd FileType tex,bib :hi texComment guifg=darkcyan gui=italic
+autocmd FileType tex,bib :hi texComment guifg=darkcyan
 
 " Color settings for the cursor (different colors for insert mode)
 highlight Cursor   guifg=red  guibg=steelblue
