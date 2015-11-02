@@ -1,4 +1,7 @@
+" ==========================
 " KEY MAPPINGS
+" ==========================
+"
 " F1 - F2		Move across open buffers
 " F3			Move across splitted windows
 " F4 - F5		Fold/unfold rows
@@ -6,15 +9,16 @@
 " F7			Text wrapping
 " F8 - F9		Comment/uncomment rows
 " F12			Enable spelling
-" Alt-1		Programming:	Search a tag (ctags)
-"		latex:		Insert begin{itemize}
-" Alt-2		Go to the next matching tag (ctags)
-"		latex:		\item
-" Alt-3		Returns from a Alt-F1 (ctags)
-"		latex:		Insert end{itemize}
-" Alt-4		Search the tag under cursor (ctags)
-" Alt-5		Restore from Alt-F4 (ctags)
-" Alt-6		Search all calls to the function name under cursor (cscope)
+" Alt-1			Programming:	Search a tag (ctags)
+"				latex:		Insert begin{itemize}
+" Alt-2			Go to the next matching tag (ctags)
+"				latex:		\item
+" Alt-3			Returns from a Alt-F1 (ctags)
+"				latex:		Insert end{itemize}
+" Alt-4			Search the tag under cursor (ctags)
+" Alt-5			Restore from Alt-F4 (ctags)
+" Alt-6			Search all calls to the function name under cursor (cscope)
+" :e			Edit a new buffer
 
 set nocp " non vi compatible mode. Must be the first option.
 
@@ -296,13 +300,6 @@ if has("gui_running")
 
 endif
 
-" ====================
-" GRAPHIC COLORS
-" ====================
-
-"source ~/.vim_runtime/colors-cloud-dark.vim
-"source ~/.vim_runtime/colors-cloud-light.vim
-
 """""""""""""""""""""""""""""""""""""""""""""""""""
 
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
@@ -323,7 +320,7 @@ let g:airline#extensions#default#section_truncate_width = {
             \ 'z': 45,
             \ 'warning': 100,
             \ }
-" usefull only on mac (macvim), other vims block on this,
+" useful only on mac (macvim), other vims block on this,
 " then it must be the last line
 
 set cmdheight=1
