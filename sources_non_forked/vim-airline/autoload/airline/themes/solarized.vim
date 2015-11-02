@@ -42,7 +42,7 @@ function! airline#themes#solarized#refresh()
   else
     let s:N1 = [s:base2, s:base00, 'bold']
     let s:N2 = [(s:tty ? s:base01 : s:base2), s:base1, '']
-    let s:N3 = [s:base1, s:base2, '']
+    let s:N3 = [s:orange, s:base2, '']
   endif
   let s:NF = [s:orange, s:N3[1], '']
   let s:NW = [s:base3, s:orange, '']
