@@ -10,15 +10,17 @@
 " F8 - F9		Comment/uncomment rows
 " F12			Enable spelling
 " Alt-1			Programming:	Search a tag (ctags)
-"				latex:		Insert begin{itemize}
+" 			Latex:		Insert begin{itemize}
 " Alt-2			Go to the next matching tag (ctags)
-"				latex:		\item
-" Alt-3			Returns from a Alt-F1 (ctags)
-"				latex:		Insert end{itemize}
+"			Latex:		\item
+" Alt-3			Returns from a Alt-1 (ctags)
+"			Latex:		Insert end{itemize}
 " Alt-4			Search the tag under cursor (ctags)
-" Alt-5			Restore from Alt-F4 (ctags)
+" Alt-5			Restore from Alt-4 (ctags)
 " Alt-6			Search all calls to the function name under cursor (cscope)
 " :e			Edit a new buffer
+" :MRU			List Most Recently Used files
+" gf			Go to file under cursor
 
 set nocp " non vi compatible mode. Must be the first option.
 
