@@ -91,6 +91,8 @@ set preserveindent
 map <F6> ==
 vmap <F6> =
 
+"Indentation is 8 spaces
+set sw=8 ts=8
 
 
 " ==========================
