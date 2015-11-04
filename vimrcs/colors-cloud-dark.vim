@@ -20,7 +20,7 @@ hi DiffChange guifg=red
 
 " Gui background color
 highlight Normal guibg=black guifg=white ctermbg=black ctermfg=white
-highlight Visual guibg=darkblue guifg=lightblue ctermbg=darkblue ctermfg=yellow cterm=reverse gui=reverse
+highlight Visual guibg=darkblue guifg=lightblue ctermbg=darkblue ctermfg=lightblue cterm=reverse gui=reverse
 
 "Colour of the state bar
 hi StatusLine gui=italic gui=bold guifg=darkred guibg=grey ctermfg=magenta
