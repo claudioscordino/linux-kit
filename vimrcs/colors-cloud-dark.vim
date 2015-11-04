@@ -10,14 +10,6 @@ colorscheme default
 hi StatusLine guifg=darkgrey guibg=darkred ctermfg=darkred
 
 
-" Colour of patches
-hi DiffFile guibg=NONE guifg=grey50 gui=bold
-hi DiffAdded guifg=red guibg=NONE gui=bold
-hi DiffRemoved guifg=orange guibg=NONE gui=bold
-hi DiffAdd guifg=white guibg=black
-hi DiffRemove guifg=white guibg=green
-hi DiffChange guifg=red
-
 " Gui background color
 highlight Normal guibg=black guifg=white ctermbg=black ctermfg=white
 highlight Visual guibg=darkblue guifg=lightblue ctermbg=darkblue ctermfg=lightblue cterm=reverse gui=reverse
@@ -32,6 +24,19 @@ hi search guifg=red guibg=lightgreen gui=bold ctermfg=red ctermbg=yellow
 hi incsearch guifg=lightgreen guibg=red ctermfg=red ctermbg=yellow cterm=reverse
 
 hi LineNr guifg=grey50 ctermfg=darkcyan
+
+
+" Colour of patches
+hi DiffFile guifg=magenta ctermfg=magenta
+hi DiffLine guifg=grey50 gui=bold ctermfg=cyan
+hi DiffSubname guifg=grey50 gui=bold ctermfg=cyan
+hi DiffAdded guifg=red gui=bold ctermfg=red cterm=bold
+hi DiffAdded guifg=red gui=bold ctermfg=red cterm=bold
+hi DiffAdd guifg=red gui=bold ctermfg=red cterm=bold
+hi DiffRemoved guifg=orange gui=bold ctermfg=green cterm=bold
+hi DiffRemove guifg=orange gui=bold ctermfg=green cterm=bold
+hi DiffChange guifg=green gui=bold ctermfg=green cterm=bold
+
 
 "Colours of the keywords for programming
 autocmd FileType c,h,cpp,php,hpp,java :hi Number guifg=green ctermfg=green
@@ -79,8 +84,5 @@ set guicursor+=n-v-c:blinkon0-Cursor
 hi PreProc guifg=#7a378b
 hi def cCustomFunc  guifg=#3d00ff
 hi def cCustomClass  guifg=#008b8b
-
-let g:netrw_liststyle=3 " Tree view with :E
-
 
 let g:airline_theme="luna"
