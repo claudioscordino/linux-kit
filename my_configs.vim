@@ -9,15 +9,17 @@
 " F7			Text wrapping
 " F8 - F9		Comment/uncomment rows
 " F12			Enable spelling
-" Alt-1			Programming:	Search a tag (ctags)
-" 			Latex:		Insert begin{itemize}
-" Alt-2			Go to the next matching tag (ctags)
-"			Latex:		\item
-" Alt-3			Returns from a Alt-1 (ctags)
-"			Latex:		Insert end{itemize}
+" Alt-1			Normal mode:	Search a tag (ctags)
+" 			Insert mode:	Insert "\begin{itemize}"
+" Alt-2			Normal mode:	Go to the next matching tag (ctags)
+"			Insert mode: 	Insert "\item"
+" Alt-3			Normal mode:	Returns from a Alt-1 (ctags)
+"			Insert mode: 	Insert "\end{itemize}"
 " Alt-4			Search the tag under cursor (ctags)
 " Alt-5			Restore from Alt-4 (ctags)
 " Alt-6			Search all calls to the function name under cursor (cscope)
+" <tab>			Programming:	Code indenting
+" 			Txt files:	Wrap line
 " :e			Edit a new buffer
 " :MRU			List Most Recently Used files
 " gf			Go to file under cursor
