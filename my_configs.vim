@@ -115,7 +115,11 @@ endfunction
 au BufEnter /* call LoadCscope()
 
 " Alt-6 searches all calls to the function name under cursor
-map <a-6> :cs find c <C-R>=expand("<cword>")<CR><CR>	
+if has("gui_running")
+	map <a-6> :cs find c <C-R>=expand("<cword>")<CR><CR>	
+else
+	map 6 :cs find c <C-R>=expand("<cword>")<CR><CR>	
+endif
 
 " ==========================
 " CTAGS (create DB through ctags -R .)
@@ -125,19 +129,39 @@ set tags+=./tags;/,tags;/
 set tags+=/var/tmp/tags
 
 " Alt-1 searches a tag
-map <a-1> :tj 
+if has("gui_running")
+	map <a-1> :tj 
+else
+	map 1 :tj 
+endif
 
 " Alt-2 goes to the next tag
-map <a-2> :tn<CR>
+if has("gui_running")
+	map <a-2> :tn<CR>
+else
+	map 2 :tn<CR>
+endif
 
 " Alt-3 returns from a tag
-map <a-3> :tp<CR>
+if has("gui_running")
+	map <a-3> :tp<CR>
+else
+	map 3 :tp<CR>
+endif
 
 " Alt-4 searches the tag under cursor
-map <a-4> g<c-]> 
+if has("gui_running")
+	map <a-4> g<c-]> 
+else
+	map 4 g<c-]> 
+endif
 
 " Alt-5 returns from Alt-4
-map <a-5> <c-t> 
+if has("gui_running")
+	map <a-5> <c-t> 
+else
+	map 5 <c-t> 
+endif
 
 
 " ==========================
@@ -146,7 +170,7 @@ map <a-5> <c-t>
 
 " Number of columns after which wrap to the next line 
 " (using a value less or equal to 80 the file can be read also from shell).
-autocmd FileType txt set textwidth=72
+autocmd FileType txt,tex set textwidth=72
 
 set lines=45
 set co=120
@@ -155,9 +179,15 @@ set co=120
 " FILE TYPE SPECIFICS
 " ==========================
 
-autocmd FileType tex imap <a-1> \begin{itemize}
-autocmd FileType tex imap <a-2> \item 
-autocmd FileType tex imap <a-3> \end{itemize}
+if has("gui_running")
+	imap <a-1> \begin{itemize}
+	imap <a-2> \item 
+	imap <a-3> \end{itemize}
+else
+	imap 1 \begin{itemize}
+	imap 2 \item 
+	imap 3 \end{itemize}
+endif
 
 " Numbers for all programming files
 autocmd FileType c,h,cpp,php,hpp,java,py set number
