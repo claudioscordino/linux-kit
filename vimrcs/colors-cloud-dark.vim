@@ -45,27 +45,27 @@ autocmd FileType c,h,cpp,php,hpp,java :hi Constant guifg=green ctermfg=green
 autocmd FileType c,h,cpp,php,hpp,java :hi cConstant guifg=green ctermfg=green
 autocmd FileType c,h,cpp,php,hpp,java :hi cppConstant guifg=green ctermfg=green
 
-autocmd FileType c,h,cpp,php,hpp,java :hi Type guifg=#60ff60 ctermfg=yellow gui=none
+autocmd FileType c,h,cpp,php,hpp,java :hi Type guifg=#60ff60 ctermfg=yellow 
 autocmd FileType c,h,cpp,php,hpp,java :hi cType guifg=#60ff60 ctermfg=yellow
 autocmd FileType c,h,cpp,php,hpp,java :hi cppType guifg=#60ff60 ctermfg=yellow
 autocmd FileType c,h,cpp,php,hpp,java :hi Structure guifg=#60ff60 ctermfg=yellow
 autocmd FileType c,h,cpp,php,hpp,java :hi cStructure guifg=#60ff60 ctermfg=yellow
 autocmd FileType c,h,cpp,php,hpp,java :hi cppStructure guifg=#60ff60 ctermfg=yellow
 
-autocmd FileType * :hi Statement guifg=#ffff60 ctermfg=yellow gui=none
+autocmd FileType * :hi Statement guifg=#ffff60 ctermfg=yellow 
 autocmd FileType c,h,cpp,php,hpp,java :hi Statement guifg=#ffff60 ctermfg=yellow
 autocmd FileType c,h,cpp,php,hpp,java :hi cStatement guifg=#ffff60 ctermfg=yellow
 autocmd FileType c,h,cpp,php,hpp,java :hi cppStatement guifg=#ffff60 ctermfg=yellow
 
 " It was SkyBlue:
-autocmd FileType c,h,cpp,php,hpp,java :hi String guifg=darkcyan ctermfg=darkcyan
-autocmd FileType c,h,cpp,php,hpp,java :hi cString guifg=darkcyan ctermfg=darkcyan
-autocmd FileType c,h,cpp,php,hpp,java :hi cppString guifg=darkcyan ctermfg=darkcyan
+autocmd FileType c,h,cpp,php,hpp,java :hi String guifg=darkcyan ctermfg=lightblue
+autocmd FileType c,h,cpp,php,hpp,java :hi cString guifg=darkcyan ctermfg=lightblue
+autocmd FileType c,h,cpp,php,hpp,java :hi cppString guifg=darkcyan ctermfg=lightblue
 
-autocmd FileType * :hi Comment guifg=darkcyan ctermfg=darkcyan
-autocmd FileType c,h,cpp,php,hpp,java :hi Comment guifg=darkcyan ctermfg=darkcyan
-autocmd FileType c,h,cpp,php,hpp,java :hi cComment guifg=darkcyan ctermfg=darkcyan
-autocmd FileType c,h,cpp,php,hpp,java :hi cppComment guifg=darkcyan ctermfg=darkcyan
+autocmd FileType * :hi Comment guifg=darkcyan ctermfg=lightblue
+autocmd FileType c,h,cpp,php,hpp,java :hi Comment guifg=darkcyan ctermfg=lightblue
+autocmd FileType c,h,cpp,php,hpp,java :hi cComment guifg=darkcyan ctermfg=lightblue
+autocmd FileType c,h,cpp,php,hpp,java :hi cppComment guifg=darkcyan ctermfg=lightblue
 
 "Fonts shown in tex files
 autocmd FileType tex,bib :hi texSection guifg=yellow ctermfg=yellow gui=none
@@ -85,4 +85,5 @@ hi PreProc guifg=#7a378b
 hi def cCustomFunc  guifg=#3d00ff
 hi def cCustomClass  guifg=#008b8b
 
-let g:airline_theme="luna"
+"let g:airline_theme="luna"
+let g:airline_theme="bubblegum"
