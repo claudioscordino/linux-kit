@@ -366,10 +366,10 @@ let g:airline#extensions#default#section_truncate_width = {
   endif
 
   " unicode symbols
-  let g:airline_left_sep = '»'
-"  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '«'
-"  let g:airline_right_sep = '◀'
+"  let g:airline_left_sep = '»'
+"  let g:airline_right_sep = '«'
+  let g:airline_left_sep = '▶'
+  let g:airline_right_sep = '◀'
   let g:airline_symbols.branch = '⎇'
   let g:airline_symbols.paste = 'ρ'
   let g:airline_symbols.readonly = ''
