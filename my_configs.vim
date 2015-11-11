@@ -346,6 +346,10 @@ let g:gitgutter_enabled = 1
 
 highlight clear SignColumn
 
+" ==========================
+" VIM AIRLINE
+" ==========================
+"
 let g:airline#extensions#tabline#enabled = 1
 
 let g:airline#extensions#default#section_truncate_width = {
@@ -356,8 +360,23 @@ let g:airline#extensions#default#section_truncate_width = {
             \ 'z': 45,
             \ 'warning': 100,
             \ }
-" useful only on mac (macvim), other vims block on this,
-" then it must be the last line
 
-set cmdheight=1
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
 
+  " unicode symbols
+  let g:airline_left_sep = '»'
+"  let g:airline_left_sep = '▶'
+  let g:airline_right_sep = '«'
+"  let g:airline_right_sep = '◀'
+  let g:airline_symbols.branch = '⎇'
+  let g:airline_symbols.paste = 'ρ'
+  let g:airline_symbols.readonly = ''
+
+
+  " No warning:
+  let g:airline_section_warning = {}
+
+  " No file encoding or file format:
+  let g:airline_section_y = {}
