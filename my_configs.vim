@@ -26,6 +26,8 @@
 
 set nocp " non vi compatible mode. Must be the first option.
 
+set paste
+
 " ==========================
 " OMNICPP (disabled)
 " ==========================
@@ -111,16 +113,16 @@ function! LoadCscope()
         let path = strpart(db, 0, match(db, "/cscope.out$"))
         set nocscopeverbose " suppress 'duplicate connection' error
         exe "cs add " . db . " " . path
-        set cscopeverbose
+        set nocscopeverbose
     endif
 endfunction
 au BufEnter /* call LoadCscope()
 
 " Alt-6 searches all calls to the function name under cursor
 if has("gui_running")
-	map <a-6> :cs find c <C-R>=expand("<cword>")<CR><CR>	
+	map <a-6> :cs find c <C-R>=expand("<cword>")<CR><CR>
 else
-	map 6 :cs find c <C-R>=expand("<cword>")<CR><CR>	
+	map 6 :cs find c <C-R>=expand("<cword>")<CR><CR>
 endif
 
 " ==========================
@@ -153,16 +155,16 @@ endif
 
 " Alt-4 searches the tag under cursor
 if has("gui_running")
-	map <a-4> g<c-]> 
+	map <a-4> g<c-]>
 else
-	map 4 g<c-]> 
+	map 4 g<c-]>
 endif
 
 " Alt-5 returns from Alt-4
 if has("gui_running")
-	map <a-5> <c-t> 
+	map <a-5> <c-t>
 else
-	map 5 <c-t> 
+	map 5 <c-t>
 endif
 
 
@@ -174,8 +176,8 @@ endif
 " (using a value less or equal to 80 the file can be read also from shell).
 autocmd FileType txt,tex set textwidth=72
 
-set lines=45
-set co=120
+"set lines=45
+"set co=120
 
 " ==========================
 " FILE TYPE SPECIFICS
