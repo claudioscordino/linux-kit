@@ -1,7 +1,7 @@
 # The Ultimate vimrc
 
 This awesome vimrc comes from https://github.com/amix/vimrc.git, tracked by the "orig" branch.
-Check the README.md file in "orig" branch for the original documentation.
+Check the README.md file in the "orig" branch for the original documentation.
 
 Short instructions:
 
@@ -12,5 +12,5 @@ You may also need to add
 
 	export TERM=xterm-256color
 
-tp your ~/.bashrc file.
+to your ~/.bashrc file.
 
