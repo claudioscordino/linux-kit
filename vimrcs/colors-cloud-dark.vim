@@ -87,3 +87,7 @@ hi def cCustomClass  guifg=#008b8b
 
 "let g:airline_theme="luna"
 let g:airline_theme="bubblegum"
+
+hi clear SpellBad
+hi SpellBad ctermbg=green ctermfg=red
+
