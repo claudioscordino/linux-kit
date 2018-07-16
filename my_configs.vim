@@ -8,7 +8,7 @@
 " F6			Indent code
 " F7			Text wrapping
 " F8 - F9		Comment/uncomment rows
-" F12			Enable spelling
+" F10			Enable spelling
 " Alt-1			Normal mode:	Search a tag (ctags)
 " 			Insert mode:	Insert "\begin{itemize}"
 " Alt-2			Normal mode:	Go to the next matching tag (ctags)
@@ -26,7 +26,6 @@
 
 set nocp " non vi compatible mode. Must be the first option.
 
-set paste
 
 " ==========================
 " OMNICPP (disabled)
@@ -58,7 +57,6 @@ set paste
 set history=700
 set undolevels=700
 set autoread
-set ignorecase
 
 set vb t_vb=
 set novisualbell
@@ -194,7 +192,7 @@ else
 endif
 
 " Numbers for all programming files
-autocmd FileType c,h,cpp,php,hpp,java,py set number
+" autocmd FileType c,h,cpp,php,hpp,java,py set number
 
 
 " ==========================
@@ -202,7 +200,8 @@ autocmd FileType c,h,cpp,php,hpp,java,py set number
 " ==========================
 
 set spelllang=en_us
-map <F12> :setlocal spell!<cr>
+map <F10> :setlocal spell!<cr>
+
 
 " ====================
 " TAB KEY
@@ -382,3 +381,8 @@ let g:airline#extensions#default#section_truncate_width = {
 
   " No file encoding or file format:
   let g:airline_section_y = {}
+
+" ToggleWhitespace
+let g:better_whitespace_filetypes_blacklist=['text', 'markdown']
+set ignorecase
+set paste
