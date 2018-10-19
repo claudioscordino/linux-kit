@@ -91,12 +91,13 @@ set copyindent
 set preserveindent
 " filetype plugin indent on
 
-" F6 does indentation of code
-map <F6> ==
-vmap <F6> =
+" F6 does indentation of full file
+map <F6> gg=G
+vmap <F6> gg=G
 
 "Indentation is 8 spaces
-set sw=8 ts=8
+set sw=8 ts=8 " Linux style
+"set et sw=2 sts=2 " ERIKA RTOS style
 
 
 " ==========================
