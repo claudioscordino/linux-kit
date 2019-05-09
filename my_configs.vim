@@ -213,17 +213,17 @@ set noexpandtab
 "set smarttab
 
 " The tab is equal to the size of 8 spaces for programming
-autocmd FileType c,h,cpp,php,hpp,java,py set shiftwidth=8
-autocmd FileType c,h,cpp,php,hpp,java,py set tabstop=8
-autocmd FileType c,h,cpp,php,hpp,java,py set softtabstop=8
+autocmd FileType c,h,cpp,php,hpp,java,python set shiftwidth=8
+autocmd FileType c,h,cpp,php,hpp,java,python set tabstop=8
+autocmd FileType c,h,cpp,php,hpp,java,python set softtabstop=8
 
 " Tab works as follows:
 " - On programming files: indent
 " - On other files: wrapping
 map <tab> gqq
 vmap <tab> gq
-autocmd FileType c,h,cpp,php,hpp,java,py map <tab> ==
-autocmd FileType c,h,cpp,php,hpp,java,py vmap <tab> =
+autocmd FileType c,h,cpp,php,hpp,java,python map <tab> ==
+autocmd FileType c,h,cpp,php,hpp,java,python vmap <tab> =
 
 
 " ====================
