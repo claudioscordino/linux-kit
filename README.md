@@ -10,8 +10,8 @@ Short instructions:
 
 Then add to your ~/.vimrc:
 
-	source ~/.vim/my_configs.vim
-	source ~/.vim/colors-cloud-dark.vim
+	source ~/.vim/vimrcs/my_configs.vim
+	source ~/.vim/vimrcs/colors-cloud-dark.vim
 
 You may also need to add
 

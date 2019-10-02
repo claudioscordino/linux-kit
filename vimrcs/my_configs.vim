@@ -104,7 +104,7 @@ set expandtab tabstop=4 shiftwidth=4  " New ERIKA coding style
 " CSCOPE (create DB through cscope -R)
 " ==========================
 
-source ~/.vim/cscope_maps.vim
+source ~/.vim/vimrcs/cscope_maps.vim
 
 function! LoadCscope()
     let db = findfile("cscope.out", ".;")
