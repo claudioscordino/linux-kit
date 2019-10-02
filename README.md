@@ -1,12 +1,15 @@
 # The Ultimate vimrc
 
-This awesome vimrc comes from https://github.com/amix/vimrc.git, tracked by the "orig" branch.
-Check the README.md file in the "orig" branch for the original documentation.
+vim configuration based on https://github.com/vim-airline/vim-airline.
 
 Short instructions:
 
-	git clone https://github.com/claudioscordino/vimrc.git ~/.vim_runtime
-	sh ~/.vim_runtime/install_awesome_vimrc_dark.sh
+	git clone https://github.com/claudioscordino/vimrc.git ~/.vim
+
+Then add to your ~/.vimrc:
+
+	source ~/.vim/my_configs.vim
+	source ~/.vim/colors-cloud-dark.vim
 
 You may also need to add
 

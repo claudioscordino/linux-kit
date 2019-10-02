@@ -96,15 +96,15 @@ map <F6> gg=G
 vmap <F6> gg=G
 
 "Indentation is 8 spaces
-set sw=8 ts=8 " Linux style
+"set sw=8 ts=8 " Linux style
 "set et sw=2 sts=2 " ERIKA RTOS style
-
+set expandtab tabstop=4 shiftwidth=4  " New ERIKA coding style
 
 " ==========================
 " CSCOPE (create DB through cscope -R)
 " ==========================
 
-source ~/.vim_runtime/vimrcs/cscope_maps.vim
+source ~/.vim/cscope_maps.vim
 
 function! LoadCscope()
     let db = findfile("cscope.out", ".;")
