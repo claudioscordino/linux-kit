@@ -1,6 +1,8 @@
 # The Ultimate vimrc
 
-vim configuration based on https://github.com/vim-airline/vim-airline.
+vim configuration with the following plugins:
+ * https://github.com/vim-airline/vim-airline
+ * https://github.com/tpope/vim-fugitive
 
 Short instructions:
 
