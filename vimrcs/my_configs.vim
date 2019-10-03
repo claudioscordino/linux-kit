@@ -108,10 +108,6 @@ set preserveindent
 map <F6> gg=G
 vmap <F6> gg=G
 
-"Indentation is 8 spaces
-"set sw=8 ts=8 " Linux style
-"set et sw=2 sts=2 " ERIKA RTOS style
-set expandtab tabstop=4 shiftwidth=4  " New ERIKA coding style
 
 " ==========================
 " CSCOPE (create DB through cscope -R)
@@ -221,14 +217,10 @@ map <F10> :setlocal spell!<cr>
 " TAB KEY
 " ====================
 
-" We don't want the tab equal to spaces
-set noexpandtab
 "set smarttab
 
-" The tab is equal to the size of 8 spaces for programming
-autocmd FileType c,h,cpp,php,hpp,java,python set shiftwidth=8
-autocmd FileType c,h,cpp,php,hpp,java,python set tabstop=8
-autocmd FileType c,h,cpp,php,hpp,java,python set softtabstop=8
+"autocmd FileType c,h,cpp,php,hpp,java,python set noexpandtab sw=8 ts=8 " Linux style
+autocmd FileType c,h,cpp,php,hpp,java,python set expandtab tabstop=4 shiftwidth=4  " New ERIKA coding style
 
 " Tab works as follows:
 " - On programming files: indent
