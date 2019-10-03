@@ -54,14 +54,20 @@ set nocp " non vi compatible mode. Must be the first option.
 " GENERAL OPTIONS
 " ==========================
 
+
+
+
+
 set history=700
 set undolevels=700
-set autoread
+set autoread " Set to auto read when a file is changed from the outside
+
+set hid " A buffer becomes hidden when it is abandoned
 
 set vb t_vb=
 set novisualbell
 set noerrorbells
-set mouse=a
+set mouse=a " Enable mouse support
 
 set nobackup
 
@@ -69,9 +75,12 @@ set nobackup
 
 syn on			" Syntax highlighting
 
-set hlsearch		" Coloured search
+set hlsearch		" Highlight search results
 
 set incsearch		" Incremental search
+
+set ignorecase " Ignore case when searching
+set smartcase " Override the 'ignorecase' option if the search pattern contains upper case characters
 
 set showmatch		" Shows correspondent brackets
 set matchtime=5		" ... only for 5 tenths of second
@@ -83,6 +92,10 @@ set matchtime=5		" ... only for 5 tenths of second
 " ==========================
 " INDENTING
 " ==========================
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 
 set autoindent
 set nocindent 
@@ -385,5 +398,9 @@ let g:airline#extensions#default#section_truncate_width = {
 
 " ToggleWhitespace
 let g:better_whitespace_filetypes_blacklist=['text', 'markdown']
-set ignorecase
 set paste
+
+" Turn backup off
+set nobackup
+set nowb
+set noswapfile
