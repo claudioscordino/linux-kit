@@ -407,3 +407,7 @@ set noswapfile
 
 " Time to see git changes
 set updatetime=1500
+
+" :W sudo saves the file 
+" (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null
