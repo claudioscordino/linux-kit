@@ -91,3 +91,8 @@ let g:airline_theme='bubblegum'
 hi clear SpellBad
 hi SpellBad ctermbg=green ctermfg=red
 
+hi GitGutterAdd guifg=yellow ctermfg=yellow
+hi GitGutterChange guifg=yellow ctermfg=yellow
+hi GitGutterDeleteDefault guifg=yellow ctermfg=yellow
+hi GitGutterDeleteLine guifg=yellow ctermfg=yellow
+hi GitGutterChangeDelete guifg=yellow ctermfg=yellow

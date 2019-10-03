@@ -3,6 +3,7 @@
 vim configuration with the following plugins:
  * https://github.com/vim-airline/vim-airline
  * https://github.com/tpope/vim-fugitive
+ * https://github.com/airblade/vim-gitgutter
 
 Short instructions:
 

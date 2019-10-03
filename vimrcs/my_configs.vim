@@ -404,3 +404,6 @@ set paste
 set nobackup
 set nowb
 set noswapfile
+
+" Time to see git changes
+set updatetime=1500
