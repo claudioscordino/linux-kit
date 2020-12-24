@@ -1,0 +1,15 @@
+sudo apt install libncursesw5-dev libsasl2-dev
+wget ftp://ftp.mutt.org/pub/mutt/mutt-1.9.5.tar.gz
+tar -xf mutt-1.9.5.tar.gz 
+cd mutt-1.9.5/
+./configure --enable-sidebar  --enable-imap  --enable-smtp  --enable-hcache --with-tokyocabinet --with-ssl --with-sasl
+make
+sudo make install
+
+
+Commands:
+s move to another folder
+t tag the file
+;s move tagged files to another folder
+Ctrl-P Ctrl-N Ctrl-O: move to another folder
+$ Refresh 

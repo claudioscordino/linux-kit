@@ -1,0 +1,161 @@
+# Real name to be used in emails
+set from = "name.surname@gmail.com"
+set realname = "Name Surname"
+
+# Enable personal headers
+set hdrs = yes
+my_hdr From: Name Surname <name.surname@gmail.com>
+
+
+# My credentials
+set smtp_url = "smtp://name.surname@gmail.com@smtp.gmail.com:587/"
+## set smtp_pass = "XXX"
+
+
+# posizione della directory contenente le Mailbox. Un '+' o '=' all'inizio
+# di un nome di percorso, in seguito, verra' sostituito con questo valore
+## set folder = $HOME/Mail
+
+# Date format
+set date_format = "%d%m%y, %H:%M"
+
+# Wrap lines longer than display
+set smart_wrap = yes
+set markers = yes # Marker '+' for wrapped lines
+
+set imap_user = 'name.surname@gmail.com'
+## set imap_pass = ""
+
+set folder = imaps://imap.gmail.com/
+set spoolfile = +INBOX
+#set postponed = "imaps://imap.gmail.com/[Gmail]/Bozze"
+set postponed = "imaps://imap.gmail.com/[Gmail]/Drafts"
+
+## Unset as Gmail saves them automatically (otherwise you see two copies 
+## among the sent messages)
+## set record = "imaps://imap.gmail.com/[Gmail]/Posta inviata"
+#set trash = "imaps://imap.gmail.com/[Gmail]/Cestino"
+set trash = "imaps://imap.gmail.com/[Gmail]/Trash"
+
+save-hook .* '=x'
+
+
+ # Activate TLS if available on the server
+ set ssl_starttls=yes
+ # Always use SSL when connecting to a server
+ set ssl_force_tls=yes
+ # Don't wait to enter mailbox manually
+ unset imap_passive
+ # Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
+ set imap_check_subscribed
+ # Reduce polling frequency to a sane level
+ set mail_check=60
+ # And poll the current mailbox more often (not needed with IDLE in post 1.5.11)
+ set timeout=10
+
+# Caching:
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+ # Display download progress every 5K
+ set net_inc=5
+
+# Sidebar settings
+set sidebar_visible
+bind index,pager \Cp sidebar-prev       # Ctrl-p - Previous Mailbox
+bind index,pager \Cn sidebar-next       # Ctrl-n - Next Mailbox
+bind index,pager \Co sidebar-open       # Ctrl-o - Open Highlighted Mailbox
+
+## set sort=reverse-date-received
+set sort=threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+
+set pager_index_lines=4
+set sleep_time = 0 # be fast
+
+## set charset="UTF-8"
+
+## color error     red             default         # error messages
+## color message   white           default         # message  informational messages
+## color indicator white           red             # indicator for the "current message"
+## color status    white           blue            # status lines in the folder index sed for the mini-help line
+## color tree      red             default         # the "tree" display of threads within the folder index
+## color search    white           blue            # search matches found with search within the internal pager
+## color index     yellow default  '~O'
+## color index     yellow default  '~N'
+## color index     brightred       default '~F'    # Flagged Messages are important!
+## color index     blue default    '~D'            # Deleted Mails - use dark color as these are already "dealt with"
+
+# general ------------ foreground ---- background -----------------------------
+color error		color231	color212
+color indicator		color231	brightblue
+color markers		red		default
+color message		default		default
+color normal		default		default
+color prompt		default	        default
+color search		color84		default
+color status 		brightcyan		color236
+color tilde		color231	default
+color tree		brightblue	default
+
+# message index ------ foreground ---- background -----------------------------
+color index		color210	default 	~D # deleted messages
+color index		brightred	default 	~F # flagged messages
+color index		yellow		default 	~N # new messages
+color index		yellow		default 	~U # unread messages
+color index		cyan		default 	~Q # messages which have been replied to
+color index		color215	default 	~T # tagged messages
+color index		color141	default		~v # messages part of a collapsed thread
+
+# message headers ---- foreground ---- background -----------------------------
+color header     	blue            default     .  # all (x-)header
+color hdrdefault	color117	default
+color header		brightblue		default		^Subject:.*
+color header 		brightblue default "From: "
+## color header brightblue default "Subject: "
+## color header brightblue default "Date: "
+
+# message body ------- foreground ---- background -----------------------------
+color attachment	color228	default
+color body		yellow		default		[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+               # email addresses
+color body		yellow		default		(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+        # URLs
+color body		color231	default		(^|[[:space:]])\\*[^[:space:]]+\\*([[:space:]]|$) # *bold* text
+color body		color231	default		(^|[[:space:]])_[^[:space:]]+_([[:space:]]|$)     # _underlined_ text
+color body		color231	default		(^|[[:space:]])/[^[:space:]]+/([[:space:]]|$)     # /italic/ text
+color quoted		cyan		default
+color quoted1		brightblue	default
+color quoted2		blue		default
+color quoted3		magenta		default
+color quoted4		red		default
+color signature		color212	default
+
+
+color sidebar_highlight	brightblue default
+color sidebar_indicator	 default brightblue
+
+macro index \Co  "<change-folder> =[Gmail]/Posta%20inviata<enter>"  "go to Sent Items"
+macro index \Ci  "<change-folder> =INBOX<enter>"  "go to INBOX"
+
+auto_view text/html	# Needs "sudo apt install links" or otherwise the following text in ~/.mailcap:
+			# text/html; w3m -I %{charset} -T text/html; copiousoutput;
+set recall=no		# Do not ask to open drafts when composing
+set signature="~/.mutt/signature"
+
+
+#confirmation skipping
+set fast_reply=yes        # when replying, don't prompt for address
+set include=yes           # include original text on reply?
+set forward_quote=yes     # include original text on forward?
+set delete=yes            # don't ask for delete confirmation
+set confirmappend=no      # Makes folder moves faster. 
+                          #   ('unset confirmappend' does the same thing)
+
+set auto_tag              # apply operations to all currently tagged messages   
+# (default is having to use ; before an action to apply to to all tagged messages)
+
+# Forward attachments:
+set mime_forward
+set mime_forward_rest=yes
+
