@@ -7,7 +7,7 @@ vim configuration with the following plugins:
 
 Short instructions:
 
-	git clone https://github.com/claudioscordino/vimrc.git ~/.vim
+	cp -a ../vim ~/.vim
 
 Then add to your ~/.vimrc:
 
