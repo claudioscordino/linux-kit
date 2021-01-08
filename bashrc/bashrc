@@ -140,3 +140,4 @@ HISTSIZE=10000
 alias cp='cp -i'
 alias mv='mv -i'
 
+## umask 0022 ## Needed on Windows Subsystem for Linux (WSL)
