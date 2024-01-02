@@ -98,3 +98,5 @@ hi GitGutterDeleteLine guifg=yellow ctermfg=yellow
 hi GitGutterChangeDelete guifg=yellow ctermfg=yellow
 hi WarningMsg ctermfg=Red ctermbg=White guifg=White guibg=Red
 hi ErrorMsg ctermfg=Red ctermbg=White guifg=White guibg=Red
+
+set background=dark
