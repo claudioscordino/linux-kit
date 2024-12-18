@@ -219,8 +219,8 @@ map <F10> :setlocal spell!<cr>
 
 "set smarttab
 
-"autocmd FileType c,h,cpp,php,hpp,java,python set noexpandtab sw=8 ts=8 " Linux style
-autocmd FileType c,h,cpp,php,hpp,java,python set expandtab tabstop=4 shiftwidth=4  " New ERIKA coding style
+autocmd FileType c,h,cpp,php,hpp,java,python set noexpandtab sw=8 ts=8 " Linux style
+"autocmd FileType c,h,cpp,php,hpp,java,python set expandtab tabstop=4 shiftwidth=4  " New ERIKA coding style
 
 " Tab works as follows:
 " - On programming files: indent
@@ -403,3 +403,7 @@ set updatetime=1500
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
+
+if &diff				" only for diff mode/vimdiff
+    set diffopt=filler,context:1000000	" filler is default and inserts empty lines for sync
+endif
