@@ -104,7 +104,7 @@ color tree		brightblue	default
 color index		color210	default 	~D # deleted messages
 color index		brightred	default 	~F # flagged messages
 color index		yellow		default 	~N # new messages
-color index		yellow		default 	~U # unread messages
+color index		green		default 	~U # unread messages
 color index		cyan		default 	~Q # messages which have been replied to
 color index		color215	default 	~T # tagged messages
 color index		color141	default		~v # messages part of a collapsed thread
